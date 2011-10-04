@@ -1,0 +1,23 @@
+%!PS-Adobe-2.0
+/nx 7 def
+/ny 10 def
+/phi 20 def
+/size 200 def
+/transx 20 def
+/transy 150 def
+/steps 2000 def
+/cpoint {
+	steps div 360 mul dup
+	phi add nx mul sin 1 add size mul transx add
+    exch
+    ny mul cos 1 add size mul transy add
+} def
+0 0 1 setrgbcolor
+7 setlinewidth
+newpath
+0 cpoint moveto
+1 1 steps 1 sub { cpoint lineto } for
+closepath
+fill
+showpage
+
