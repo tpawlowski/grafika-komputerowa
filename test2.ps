@@ -1,8 +1,34 @@
 %!PS-Adobe-2.0
-/Times-Roman findfont 60 scalefont setfont 
-100 400 60 30 337 arc
-75 388 moveto
-(test) show
-stroke
+/shadeshow {
+    /py exch def
+    /px exch def
+    /n exch def
+    /s exch def
+    /y exch def
+    /x exch def
+    /dx px n div def
+    /dy py n div def
+    1 1 n div neg 0 {
+        setgray
+        x y moveto
+        s show
+        /x x dx add def
+        /y y dy sub def
+    } for
+
+    1 setgray
+    x y moveto
+    s show
+    0 setgray
+    2 setlinewidth
+    newpath x y moveto s false charpath stroke
+    1 setlinewidth
+    newpath x y moveto s true charpath clip
+} def
+/Times-Roman findfont 150 scalefont setfont
+50 720 (napis) 20 100 100 shadeshow
+0 4 500 {
+    newpath 550 moveto 500 500 rlineto stroke
+} for
 showpage
 
