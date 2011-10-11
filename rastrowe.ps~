@@ -1,0 +1,18 @@
+%!
+/picstr 1 string def
+/displayimage {
+    /h exch def
+    /w exch def
+    w h 8 [ 1 0 0 −1 0 h ]
+    { currentfile picstr readhexstring pop }
+    image
+} def
+200 100 translate
+40 dup scale
+6 4 displayimage
+00ff44ff88ff
+44ffffffff88
+88ffffffff44
+ccffcc884400
+showpage
+

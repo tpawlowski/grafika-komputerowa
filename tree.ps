@@ -1,0 +1,34 @@
+%!
+/myrgbcolor {setrgbcolor} bind def
+/setrgbcolor {
+    3 1 roll myrgbcolor
+} def
+/tree {
+    4 dict begin
+        /a exch def
+        /l exch def
+        /y exch def
+        /x exch def
+        l 10 ge {
+            l 0.05 mul setlinewidth
+            l 12 ge {0.4 0.2 0.0}
+                    {0.0 0.9 0.0} ifelse
+            setrgbcolor
+            newpath
+            x y moveto
+            a cos l mul a sin l mul rlineto
+            currentpoint
+            stroke
+            l 0.8 mul 3 copy
+            a 20 add tree
+            a 20 sub tree
+        } if
+    end
+} def
+1.2 0.8 scale
+0 50 translate
+17 rotate
+0 -200 translate
+300 400 70 90 tree
+showpage
+
